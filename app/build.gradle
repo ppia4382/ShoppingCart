@@ -1,0 +1,74 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    //DataBindingとViewBindingを利用するために追加する
+    dataBinding{
+        enabled= true
+    }
+        viewBinding{
+        enabled=true
+    }
+
+    defaultConfig {
+        applicationId "link.ppia.shoppingcart1"
+        minSdk 16
+        targetSdk 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //Recycler View (アダプター含み)
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+
+
+    //Material Library (デザインに必要な材料と他のmaterial材料）-Material Componentsを利用するから必要
+    implementation "com.google.android.material:material:1.4.0"
+
+    //Shared ViewModelとLive Dataを利用するから必要
+//    def lifecycle_version = "2.2.0"
+//    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-livedata:2.3.1"
+
+    //JetpackのNavigation Componentsを利用するので、これらは必要
+//    def nav_version = "2.3.0"
+//    implementation "androidx.navigation:navigation-fragment:$nav_version"
+//    implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation "androidx.navigation:navigation-fragment:2.3.5"
+    implementation "androidx.navigation:navigation-ui:2.3.5"
+
+    //Glide Library-画像をloadするためにこのライブラリを使う
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+}
